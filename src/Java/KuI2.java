@@ -18,8 +18,8 @@ public class KuI2 {
 
     /**
      * Die main-Methode ruft die run-Methode auf
-     * @param args
-     * @throws Exception
+     * @param args Command-Line Parameter
+     * @throws Exception Kann Exceptions werfen
      */
     public static void main(String[] args) throws Exception{
         new KuI2().run();
@@ -27,7 +27,7 @@ public class KuI2 {
 
     /**
      * In der run-Methode läuft das gesamte Programm.
-     * @throws Exception
+     * @throws Exception Kann Exceptions werfen
      */
     public void run() throws Exception {
         FileWriter fileWriter = new FileWriter("Messzahlen\\messzahlen.csv");
@@ -64,7 +64,7 @@ public class KuI2 {
 
     /**
      * setZahlenGroesse bestimmt die int[] Grösse für die zu sortierenden Zahlen
-     * @param file
+     * @param file File-Referenz wird verwendet, um den Namen der aktuellen Datei für einen Vergleich zu holen
      */
     public void setZahlenGroesse(File file) {
         if (file.getName().matches("[A-Z]+[a-z]*[A-Z]?[a-z]*[1]+[0]?[0]?[0]?\\.+[a-z]*")) {
@@ -79,9 +79,10 @@ public class KuI2 {
     /**
      * runSorters führt alle Sortieralgorithmen nacheinander in einem Loop aus.
      * Da die Benutzung vom BinaryTreeSort zu einer StackOverflowException führt, wird dieser separat ausgeführt.
-     * @param fileWriter
-     * @param file
-     * @throws Exception
+     * @param fileWriter FileWriter-Referenz wird verwendet, um Messwerte in ein Messzahlen-File zu schreiben
+     * @param file File-Referenz wird verwendet, um den Namen der aktuellen Datei zu holen
+     * @throws Exception Diese Methode kann mehrere verschiedene Exceptions werfen, nämlich FileNotFoundException
+     * sowie IOException
      */
     public void runSorters(FileWriter fileWriter, File file) throws Exception{
         for (int i = 0; i < sorter.length - 1; i++) {
@@ -99,9 +100,10 @@ public class KuI2 {
 
     /**
      * binaryTreeSort wendet den BinaryTree-Algorithmus auf alle Files an.
-     * @param listOfFiles
-     * @param fileWriter
-     * @throws Exception
+     * @param listOfFiles Array der Dateien, die sortiert werden
+     * @param fileWriter FileWriter-Referenz wird verwendet, um Messwerte in ein Messzahlen-File zu schreiben
+     * @throws Exception Diese Methode kann mehrere verschiedene Exceptions werfen, nämlich FileNotFoundException
+     * sowie IOException
      */
     public void binaryTreeSort(File[] listOfFiles, FileWriter fileWriter) throws Exception {
         for (File file : listOfFiles) {
