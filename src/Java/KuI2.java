@@ -53,13 +53,13 @@ public class KuI2 {
      * initSorter initialisiert alle Sortieralgorithmen
      */
     public void initSorter() {
-        /*sorter[0] = new Quicksort();
+        sorter[0] = new Quicksort();
         sorter[1] = new QuicksortRan();
         sorter[2] = new Shakersort();
         sorter[3] = new Mergesort();
         sorter[4] = new Heapsort();
         sorter[5] = new InsertionSort();
-        sorter[6] = new BinaryTreeSort();*/
+        sorter[6] = new BinaryTreeSort();
     }
 
     /**
