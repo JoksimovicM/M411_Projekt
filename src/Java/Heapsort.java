@@ -15,6 +15,14 @@ public class Heapsort implements SorterInterface {
 
     Runtime rt = Runtime.getRuntime();
 
+    /**
+     * Sort() sortiert die Zahlen mit hilfe vom Heapsort
+     * Best-Case: θ(n *log(n))
+     * Average-Case: θ(n * log(n))
+     * Worst-Case: θ(n * log(n))
+     * @param zahlen
+     */
+    
     @Override
     public void sort(int[] zahlen) {
         schreibzugriffe = 0;
