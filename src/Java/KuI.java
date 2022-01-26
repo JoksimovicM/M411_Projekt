@@ -17,13 +17,16 @@ public class KuI {
     int counter = 0;
     int[] zahlen;
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         new KuI().run();
     }
 
-    public void run() {
+    public void run() throws IOException {
 
         SorterInterface sorter;
+
+        FileWriter fileWriter = new FileWriter("Messzahlen\\messzahlen2.csv");
+        fileWriter.write("Sortieralgorithmus,Sortierdauer in ms,Speicherbedarf,Anzahl Vergleiche,Anzahl Schreibzugriffe\n");
 
         char auswahl = '-';
         while (auswahl != 'x') {
@@ -32,14 +35,19 @@ public class KuI {
                 auswahl = sc.next().charAt(0);
                 switch (auswahl) {
                     case '1':
-                        //sorter = new Quicksort();
-                        //sorter.sort()
+                        /*sorter = new Quicksort();
+                        sorter.sort(zahlen);
+                        fileWriter.write("Quicksort,");
+                        saveMesszahlen(sorter, fileWriter);*/
                         break;
                     case '2':
                         //sorter = new QuicksortRan();
                         break;
                     case '3':
-                        //sorter = new ShakerSort();
+                        /*sorter = new Shakersort();
+                        sorter.sort(zahlen);
+                        fileWriter.write("Shakersort,");
+                        saveMesszahlen(sorter, fileWriter);*/
                         break;
                     case '4':
                         //sorter = new BinaryTreeSort();
@@ -51,14 +59,10 @@ public class KuI {
                         //sorter = new InsertionSort();
                         break;
                     case '7':
-                        //sorter = new Mergesort();
-                        break;
-                    case '8':
-                        sorter = new Bubblesort();
+                        /*sorter = new Mergesort();
                         sorter.sort(zahlen);
-                        printZahlen(zahlen);
-                        printMesszahlen(sorter);
-                        saveToFile(zahlen);
+                        fileWriter.write("Mergesort,");
+                        saveMesszahlen(sorter,fileWriter);*/
                         break;
                     case 'x':
                         break;
@@ -69,6 +73,7 @@ public class KuI {
                 auswahl = 'x';
             }
         }
+        fileWriter.close();
     }
 
     public void printMenu() {
@@ -83,18 +88,22 @@ public class KuI {
         System.out.print(">");
     }
 
-    public void printMesszahlen(SorterInterface sorter) {
-        System.out.println(sorter.getSpeicherbedarf());
-        System.out.println(sorter.anzahlSchreibzugriffe());
-        System.out.println(sorter.anzVergleiche());
-        System.out.println(sorter.getTime());
-    }
-
-    public void printZahlen(int[] zahlen) {
-        for (int i : zahlen) {
-            System.out.println(i);
+    public void saveMesszahlen(SorterInterface sorter, FileWriter fileWriter) {
+        long duration = sorter.getTime();
+        int speicherbedarf = sorter.getSpeicherbedarf();
+        int anzVergleiche = sorter.anzVergleiche();
+        long anzSwaps = sorter.anzahlSchreibzugriffe();
+        try {
+            fileWriter.write(Long.toString(duration) + ",");
+            fileWriter.write(speicherbedarf + ",");
+            fileWriter.write(anzVergleiche + ",");
+            fileWriter.write(anzSwaps + "\n");
+        } catch (Exception ex) {
         }
-        System.out.println("\n");
+        System.out.println("Speicherbedarf: " + sorter.getSpeicherbedarf());
+        System.out.println("Anzahl Schreibzugriffe: " + sorter.anzahlSchreibzugriffe());
+        System.out.println("Anzahl Vergleiche: " + sorter.anzVergleiche());
+        System.out.println("Sortier Dauer in ms: " + sorter.getTime() + "\n");
     }
 
     public boolean loadFile() {
@@ -166,22 +175,11 @@ public class KuI {
             Scanner numberSc = new Scanner(new File("Data\\" + datei + groesse + ".dat"));
             while (numberSc.hasNextInt()) {
                 zahlen[counter] = numberSc.nextInt();
-                counter++; }
+                counter++;
+            }
         } catch (FileNotFoundException ex) {
             System.out.println(ex.getMessage());
         }
         return false;
-    }
-
-    public void saveToFile(int[] zahlen) {
-        try {
-            FileWriter fileWriter = new FileWriter("Projekt\\Data\\messzahlen.csv");
-            for (int i : zahlen) {
-                fileWriter.write(i + "\n");
-            }
-            fileWriter.close();
-        } catch (IOException e) {
-            System.out.println(e.getMessage());
-        }
     }
 }

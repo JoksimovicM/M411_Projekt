@@ -15,5 +15,5 @@ public interface SorterInterface {
 
     public int anzVergleiche();
 
-    public int anzahlSchreibzugriffe();
+    public long anzahlSchreibzugriffe();
 }
