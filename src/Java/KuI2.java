@@ -16,10 +16,19 @@ public class KuI2 {
     int[] zahlen;
     String[] klassen = {"Quicksort","QuicksortRandom","Shakersort","Mergesort","Heapsort","InsertionSort","BinaryTreeSort"};
 
+    /**
+     * Die main-Methode ruft die run-Methode auf
+     * @param args
+     * @throws Exception
+     */
     public static void main(String[] args) throws Exception{
         new KuI2().run();
     }
 
+    /**
+     * In der run-Methode läuft das gesamte Programm.
+     * @throws Exception
+     */
     public void run() throws Exception {
         FileWriter fileWriter = new FileWriter("Messzahlen\\messzahlen.csv");
         fileWriter.write("File,Sortieralgorithmus,Sortierdauer in ms,Speicherbedarf in bytes,Anzahl Vergleiche,Anzahl Schreibzugriffe\n");
@@ -40,6 +49,9 @@ public class KuI2 {
         fileWriter.close();
     }
 
+    /**
+     * initSorter initialisiert alle Sortieralgorithmen
+     */
     public void initSorter() {
         /*sorter[0] = new Quicksort();
         sorter[1] = new QuicksortRan();
@@ -50,6 +62,10 @@ public class KuI2 {
         sorter[6] = new BinaryTreeSort();*/
     }
 
+    /**
+     * setZahlenGroesse bestimmt die int[] Grösse für die zu sortierenden Zahlen
+     * @param file
+     */
     public void setZahlenGroesse(File file) {
         if (file.getName().matches("[A-Z]+[a-z]*[A-Z]?[a-z]*[1]+[0]?[0]?[0]?\\.+[a-z]*")) {
             zahlen = new int[1000];
@@ -60,6 +76,13 @@ public class KuI2 {
         }
     }
 
+    /**
+     * runSorters führt alle Sortieralgorithmen nacheinander in einem Loop aus.
+     * Da die Benutzung vom BinaryTreeSort zu einer StackOverflowException führt, wird dieser separat ausgeführt.
+     * @param fileWriter
+     * @param file
+     * @throws Exception
+     */
     public void runSorters(FileWriter fileWriter, File file) throws Exception{
         for (int i = 0; i < sorter.length - 1; i++) {
             Scanner numberSc = new Scanner(file);
@@ -74,6 +97,12 @@ public class KuI2 {
         }
     }
 
+    /**
+     * binaryTreeSort wendet den BinaryTree-Algorithmus auf alle Files an.
+     * @param listOfFiles
+     * @param fileWriter
+     * @throws Exception
+     */
     public void binaryTreeSort(File[] listOfFiles, FileWriter fileWriter) throws Exception {
         for (File file : listOfFiles) {
             if (file.isFile()) {
