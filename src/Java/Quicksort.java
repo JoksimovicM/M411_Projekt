@@ -15,6 +15,14 @@ public class Quicksort implements SorterInterface{
 
     Runtime rt = Runtime.getRuntime();
 
+    /**
+     * Sort() sortiert die Zahlen mit hilfe vom Quicksort
+     * Best-Case: θ(n * log(n))
+     * Average-Case: θ(n * log(n))
+     * Worst-Case: θ(n^2)
+     * @param zahlen
+     */
+    
     @Override
     public void sort(int[] zahlen) {
         schreibzugriffe = 0;
