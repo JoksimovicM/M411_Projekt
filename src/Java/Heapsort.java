@@ -15,6 +15,21 @@ public class Heapsort implements SorterInterface {
 
     Runtime rt = Runtime.getRuntime();
 
+    /**
+     * Sort() sortiert die Zahlen mit hilfe vom Heapsort
+     * Die Eingabe ist ein Array mit zu sortierenden Elementen.
+     * Als erstes wird die Eingabe in einen binären Max-Heap überführt.
+     * Aus der Heap-Eigenschaft folgt direkt, dass nun an der ersten Array-Position das größte Element steht.
+     * Dieses wird mit dem letzten Array-Element vertauscht und die Heap-Array-Größe um 1 verringert, ohne den Speicher freizugeben.
+     * Die neue Wurzel des Heaps kann die Heap-Eigenschaft verletzen. Die Heapify-Operation korrigiert gegebenenfalls den Heap, so dass nun das nächstgrößere bzw. gleich große Element an der ersten Array-Position steht.
+     * Die Vertausch-, Verkleiner- und Heapify-Schritte werden so lange wiederholt, bis die Heap-Größe 1 ist. Danach enthält das Eingabe-Array die Elemente in aufsteigend sortierter Reihenfolge.
+     *
+     * Best-Case: θ(n *log(n))
+     * Average-Case: θ(n * log(n))
+     * Worst-Case: θ(n * log(n))
+     * @param zahlen
+     */
+    
     @Override
     public void sort(int[] zahlen) {
         schreibzugriffe = 0;

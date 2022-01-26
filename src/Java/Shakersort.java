@@ -16,6 +16,19 @@ public class Shakersort implements SorterInterface {
 
     Runtime rt = Runtime.getRuntime();
 
+    /**
+     * Sort() sortiert die Zahlen mit hilfe vom Shakesort aka. Cocktailsort
+     * Das zu sortierende Feld wird abwechselnd nach oben und nach unten durchlaufen.
+     * Dabei werden jeweils zwei benachbarte Elemente verglichen und gegebenenfalls vertauscht.
+     * Durch diese Bidirektionalität kommt es zu einem schnelleren Absetzen von großen bzw. kleinen Elementen.
+     * Anhand des Sortierverfahrens lässt sich auch der Name erklären, denn der Sortiervorgang erinnert an das Schütteln des Arrays oder eines Barmixers.
+   
+     * Best-Case: θ(n)
+     * Average-Case: θ(n^2)
+     * Worst-Case: θ(n^2)
+     * @param zahlen
+     */
+    
     @Override
     public void sort(int[] zahlen) {
         comparisons = 0;

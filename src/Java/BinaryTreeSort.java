@@ -63,6 +63,19 @@ public class BinaryTreeSort implements SorterInterface {
         }
     }
 
+    /**
+     * Sort() sortiert die Zahlen mit hilfe vom BinaryTreeSort
+     * Bei diesem Algorithmus werden alle zu sortierenden Elemente nacheinander in einen binären Suchbaum eingefügt.
+     * Anschließend wird dieser Baum in-order durchlaufen, wobei alle Elemente in sortierter Reihenfolge angetroffen werden.
+     * In seiner ganz elementaren Form ist der Algorithmus nicht stabil. Wird jedoch statt der üblichsten Suchfunktion Find eine Variante genommen, die auch bei vorhandenem Schlüssel entweder rechts- oder linksseitig immer bis zu den Blättern hinab sucht, wird der Sortieralgorithmus stabil.
+     * Dies kann mittels einer Vergleichsfunktion geschehen, die bei Gleichheit statt dem Rückgabewert 0 immer nur den Wert +1 oder immer nur den Wert −1 zurückgibt (bei gleicher Suchfunktion) resp. einer angepassten Suchfunktion, wie z. B. FindDupGE.
+     *
+     * Best-Case: θ(n * log(n))
+     * Average-Case: θ(n * log(n))
+     * Worst-Case: θ(n * log(n))
+     * @param zahlen
+     */
+    
     @Override
     public void sort(int[] zahlen) {
         schreibzugriffe = 0;

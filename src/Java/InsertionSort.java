@@ -15,6 +15,21 @@ public class InsertionSort implements SorterInterface {
 
     Runtime rt = Runtime.getRuntime();
 
+    /**
+     * Sort() sortiert die Zahlen mit hilfe vom InsertionSort
+     * Insertionsort entnimmt der unsortierten Eingabefolge ein beliebiges Element und fügt es an richtiger Stelle in die (anfangs leere) Ausgabefolge ein.
+     * Geht man hierbei in der Reihenfolge der ursprünglichen Folge vor, so ist das Verfahren stabil.
+     * Wird auf einem Array gearbeitet, so müssen die Elemente hinter dem neu eingefügten Element verschoben werden.
+     * Dies ist die eigentlich aufwendige Operation des Insertionsorts.
+     * Das Auffinden der richtigen Einfügeposition kann über eine binäre Suche vergleichsweise effizient erfolgen.
+     * Grundsätzlich gilt aber, dass Insertionsort weit weniger effizient arbeitet als andere anspruchsvollere Sortierverfahren.
+     *
+     * Best-Case: θ(n)
+     * Average-Case: θ(n^2)
+     * Worst-Case: θ(n^2)
+     * @param zahlen
+     */
+    
     @Override
     public void sort(int[] zahlen) {
         schreibzugriffe = 0;
