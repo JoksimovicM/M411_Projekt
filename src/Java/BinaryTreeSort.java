@@ -63,6 +63,14 @@ public class BinaryTreeSort implements SorterInterface {
         }
     }
 
+    /**
+     * Sort() sortiert die Zahlen mit hilfe vom BinaryTreeSort
+     * Best-Case: θ(n * log(n))
+     * Average-Case: θ(n * log(n))
+     * Worst-Case: θ(n * log(n))
+     * @param zahlen
+     */
+    
     @Override
     public void sort(int[] zahlen) {
         schreibzugriffe = 0;
