@@ -17,6 +17,11 @@ public class Mergesort implements SorterInterface {
 
     /**
      * Sort() sortiert die Zahlen mit hilfe vom Mergesort
+     * Mergesort betrachtet die zu sortierenden Daten als Liste und zerlegt sie in kleinere Listen, die jede für sich sortiert werden.
+     * Die kleinen sortierten Listen werden dann im Reißverschlussverfahren zu größeren sortierten Listen zusammengefügt, bis eine sortierte Gesamtliste erreicht ist.
+     * Das Verfahren arbeitet bei Arrays in der Regel nicht in-place, es sind dafür aber Implementierungen bekannt, in welchen die Teil-Arrays üblicherweise rekursiv zusammengeführt werden.
+     * Verkettete Listen sind besonders geeignet zur Implementierung von Mergesort, dabei ergibt sich die in-place-Sortierung fast von selbst.
+     *
      * Best-Case: θ(n * log(n))
      * Average-Case: θ(n * log(n))
      * Worst-Case: θ(n * log(n))
