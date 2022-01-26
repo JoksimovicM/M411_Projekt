@@ -17,6 +17,14 @@ public class QuicksortRan implements SorterInterface {
 
     Runtime rt = Runtime.getRuntime();
 
+    /**
+     * Sort() sortiert die Zahlen mit hilfe vom Quicksort, jedoch mit einem random Pivot
+     * Best-Case: θ(n * log(n))
+     * Average-Case: θ(n * log(n))
+     * Worst-Case: θ(n^2)
+     * @param zahlen
+     */
+    
     @Override
     public void sort(int[] zahlen) {
         comparisons = 0;
